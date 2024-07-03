@@ -8,6 +8,7 @@ import ru.javamentor.PP_3_1_2.model.User;
 
 import java.util.List;
 
+@Transactional
 @Service
 public class UserServiceImpl implements UserService {
 
@@ -17,25 +18,21 @@ public class UserServiceImpl implements UserService {
         this.userDao = userDao;
     }
 
-    @Transactional
     @Override
     public void addUser(User user) {
         userDao.addUser(user);
     }
 
-    @Transactional(readOnly = true)
     @Override
     public List<User> getListOfUsers() {
         return userDao.getListOfUsers();
     }
 
-    @Transactional
     @Override
     public void deleteUser(long id) {
         userDao.deleteUser(id);
     }
 
-    @Transactional
     @Override
     public void editUser(User user) {
         userDao.editUser(user);

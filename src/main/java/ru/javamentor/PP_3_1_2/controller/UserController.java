@@ -2,10 +2,7 @@ package ru.javamentor.PP_3_1_2.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 import ru.javamentor.PP_3_1_2.model.User;
 import ru.javamentor.PP_3_1_2.service.UserService;
 
@@ -24,7 +21,7 @@ public class UserController {
         return "users";
     }
 
-    @GetMapping("/delete_user")
+    @DeleteMapping("/delete_user")
     public String deleteUser(@RequestParam long id) {
         userService.deleteUser(id);
         return "redirect:/users";
